@@ -1,0 +1,75 @@
+<!-- 
+Online HTML, CSS and JavaScript editor to run code online.
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  <title> Browser </title>
+
+</head>
+<body>
+  <div class="card">
+    <h1 id="signup">Sign up</h1>
+    <p> Already have an account? <a href = "login.html/"> Sign in. </a> </p>
+    {% for message in messages%}
+     <p id="error"> {{message}}</p>
+
+    {% endfor %}
+    <form method="POST" action="{% url 'signup' %}"> 
+        {% csrf_token %}
+    <div class="row">
+      <div class="group">
+    <label> First Name </label>
+    <input type="text" name="first_name" class="bar"/> <br>
+        </div>
+        
+        <div class="group">
+    <label> Last Name </label>
+    <input type="text" name="last_name" class="bar"/>
+        </div>
+        
+      </div>  
+
+      <div class="group">
+        
+	    <label> Username </label> <br>
+    <input type="text" name="username" class="bar"/> <br>
+        </div>
+        
+     <div class="group">
+          <label> Email</label> <br>
+    <input type="email" name="email" class="bar"/> <br>
+       
+      </div>
+      
+       <div class = "row">
+         
+        <div class="group">
+    <label> Password </label> <br>
+    	<input name="password1" type="password" />    
+       </div>
+          
+          
+         <div class ="group">
+           <label> Confirm Password </label>
+           <input name="password2" type="password" class="bar"/> <br>
+          </div>
+           
+           
+         </div> 
+      <button type="submit"> Create Account</button>
+</form>
+</div>
+      
+
+  
+</body>
+
+</html>
